@@ -1,0 +1,51 @@
+﻿@model WebApplication.Models.WeapModels
+@{
+    ViewBag.Title = "Lottery";
+}
+
+
+
+
+@{
+
+    Random r = new Random();
+}
+
+<br />
+<p class="lead text-info">
+    Не проходите мимо. Только сегодня у вас есть уникальный шанс сбить цену на один из лолов нашего замечательного черного рынка!
+</p>
+<table class="table table-hover table-striped row">
+    <thead>
+        <tr>
+            <th>LOT</th>
+            <th>PRICE</th>
+            <th>MADE</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="col-md-4">
+                <h3> @Model.WeaponName</h3>
+            </td>
+            <td class="col-md-2">
+                <h3 class="text-warning"> $ @(r.Next(10000, 50000))</h3>
+            </td>
+            <td class="col-md-2">
+                <h3>@Model.WeaponMade</h3>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<div class="thumbnail  col-md-12">
+    <img src="~/Content/Images/@Model.PicUrl" alt="@Model.WeaponName" class="img-responsive">
+</div>
+
+<br />
+<div class=" text-center">
+    @Html.ActionLink("CHANGE PRICE", "lottery", "Weap", new { area = "" }, new { @class = "btn btn-success " })
+
+
+</div>

@@ -1,0 +1,35 @@
+﻿@model WebApplication.Models.WeapModels[]
+@{
+    ViewBag.Title = "Index";
+}
+<table class="table table-hover table-striped row">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Made</th>
+            <th>review</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td class="col-md-4">
+                    <h3>@c.WeaponName</h3>
+                </td>
+                <td class="col-md-2">
+                    <h3>$ @c.WeaponPrice</h3>
+                </td>
+                <td class="col-md-2">
+                    <h3>@c.WeaponMade</h3>
+                </td>
+                <td>
+                    <div class="thumbnail  col-md-4">
+                        <img src="~/Content/Images/@c.PicUrl" alt="@c.WeaponName" class="img-responsive">
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
